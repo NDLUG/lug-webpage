@@ -2,6 +2,7 @@ Django==1.9.2
 appnope==0.1.0
 decorator==4.0.6
 gnureadline==6.3.3
+gunicorn==19.4.5
 ipdb==0.8.1
 ipython==4.1.0
 ipython-genutils==0.1.0
