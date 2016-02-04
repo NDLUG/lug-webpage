@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'voting',
     'secretballot',
     'django_extensions',
+    'likes',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -53,6 +54,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'secretballot.middleware.SecretBallotIpMiddleware',
+    'likes.middleware.SecretBallotUserIpUseragentMiddleware',
 ]
 
 ROOT_URLCONF = 'ndlug.urls'
@@ -68,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
