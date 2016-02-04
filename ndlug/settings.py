@@ -15,10 +15,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIRS = (
-            os.path.join(BASE_DIR,'templates'),
-                os.path.join(BASE_DIR,'announcements/templates'),
-                )
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -60,7 +56,7 @@ ROOT_URLCONF = 'ndlug.urls'
 
 TEMPLATES = [
             {
-                        'BACKEND':'django.template.backends.jinja2.Jinja2',
+                        'BACKEND':'django.template.backends.django.DjangoTemplates',
                                 'DIRS': [os.path.join(BASE_DIR, 'templates')],
                                         'APP_DIRS': True,
                                                 'OPTIONS': {
@@ -73,11 +69,6 @@ TEMPLATES = [
                                                                         },
                                                     },
             ]
-
-TEMPLATE_LOADERS = (
-            'django_jinja.loaders.AppLoader',
-                'django_jinja.loaders.FileSystemLoader',
-                )
 
 WSGI_APPLICATION = 'ndlug.wsgi.application'
 
