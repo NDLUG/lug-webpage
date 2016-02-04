@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'announcements',
     'voting',
     'secretballot',
+    'django_extensions',
 ]
 
 MIDDLEWARE_CLASSES = [
