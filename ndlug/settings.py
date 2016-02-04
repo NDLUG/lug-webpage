@@ -15,7 +15,10 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR,'templates'),
+    os.path.join(BASE_DIR,'announcements/templates'),
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -38,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_jinja',
+    'announcements',
+   # 'polls',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -55,8 +61,9 @@ ROOT_URLCONF = 'ndlug.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'BACKEND':'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,7 +74,20 @@ TEMPLATES = [
             ],
         },
     },
+    {
+        'BACKEND':'django.template.backends.jinja2.Jinja2',
+        'DIRS':[],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            
+        },
+    },
 ]
+
+TEMPLATE_LOADERS = (
+    'django_jinja.loaders.AppLoader',
+    'django_jinja.loaders.FileSystemLoader',
+)
 
 WSGI_APPLICATION = 'ndlug.wsgi.application'
 
@@ -107,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'ET'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
