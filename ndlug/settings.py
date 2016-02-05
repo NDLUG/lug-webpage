@@ -31,44 +31,44 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-            'django.contrib.admin',
-                'django.contrib.auth',
-                    'django.contrib.contenttypes',
-                        'django.contrib.sessions',
-                            'django.contrib.messages',
-                                'django.contrib.staticfiles',
-                                    'announcements',
-                                       # 'polls',
-                                       ]
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'announcements',
+    # 'polls',
+]
 
 MIDDLEWARE_CLASSES = [
-            'django.middleware.security.SecurityMiddleware',
-                'django.contrib.sessions.middleware.SessionMiddleware',
-                    'django.middleware.common.CommonMiddleware',
-                        'django.middleware.csrf.CsrfViewMiddleware',
-                            'django.contrib.auth.middleware.AuthenticationMiddleware',
-                                'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-                                    'django.contrib.messages.middleware.MessageMiddleware',
-                                        'django.middleware.clickjacking.XFrameOptionsMiddleware',
-                                        ]
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
 
 ROOT_URLCONF = 'ndlug.urls'
 
 TEMPLATES = [
-            {
-                        'BACKEND':'django.template.backends.django.DjangoTemplates',
-                                'DIRS': [os.path.join(BASE_DIR, 'templates')],
-                                        'APP_DIRS': True,
-                                                'OPTIONS': {
-                                                                'context_processors': [
-                                                                                    'django.template.context_processors.debug',
-                                                                                                    'django.template.context_processors.request',
-                                                                                                                    'django.contrib.auth.context_processors.auth',
-                                                                                                                                    'django.contrib.messages.context_processors.messages',
-                                                                                                                                                ],
-                                                                        },
-                                                    },
-            ]
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 WSGI_APPLICATION = 'ndlug.wsgi.application'
 
@@ -77,30 +77,30 @@ WSGI_APPLICATION = 'ndlug.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 try:
-        db_url = os.environ['DATABASE_URL']
+    db_url = os.environ['DATABASE_URL']
 except KeyError:
-        db_url = "postgres://postgres:test@localhost:5432/ndlug"
+    db_url = "postgres://postgres:test@localhost:5432/ndlug"
 
-        DATABASES = {}
-        DATABASES['default'] = dj_database_url.config(default=db_url)
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(default=db_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-            {
-                        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-                            },
-                {
-                            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-                                },
-                    {
-                                'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-                                    },
-                        {
-                                    'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-                                        },
-                        ]
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # noqa
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # noqa
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # noqa
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',  # noqa
+    },
+]
 
 
 # Internationalization
@@ -124,8 +124,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
 
 STATICFILES_DIRS = (
-            os.path.join(BASE_DIR, 'static'),
-            )
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Whitenoise is cool.
 # Simplified static file serving.
