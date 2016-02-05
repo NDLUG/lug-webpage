@@ -52,6 +52,13 @@
 
       <h2></h2>
       <br>
+		{% if messages %}
+			{% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                    <div class="alert alert-info" role="alert">{{ message }}</div>
+                {% endif %}
+			{% endfor %}
+		{% endif %}
       {% block content %}{% endblock %}
       <br>
       <h2></h2>
