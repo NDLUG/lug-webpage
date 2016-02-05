@@ -20,5 +20,4 @@ from django.conf.urls import include
 urlpatterns = [
     url(r'^$', include('announcements.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^registration/', include('registration.urls')),
 ]
