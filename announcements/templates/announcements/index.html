@@ -17,4 +17,51 @@
             {% endif %}
         </div>
     </div>
+<<<<<<< HEAD
+    
+    <!-- Subsection 1, Info -->
+	<div class="row-fluid">
+		<div class="span6"> 
+			<img class="img" src="static/tux-nd-big.png" alt="Tux ND" width="400" height="400">
+		</div>
+		<div class="span6"><br>
+			<div class="panel panel-primary">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Poll</h3>
+			  </div>
+			  <div class="panel-body">
+				{% if user.is_authenticated %}
+            <p class="important">
+            Please
+            <a href="https://docs.google.com/a/nd.edu/forms/d/1at43MVIuC2zo28sVanY4LSTsno_pGu9EbhkPeDSlnx4/viewform?usp=send_form">Vote</a>
+             for a topic for the first meeting!
+            </p>
+            {% else %}
+            <p class="important">
+            Plese sign up to vote for a topic for the first meeting.
+            </p>
+            {% endif %}
+			  </div>
+			</div>
+			<div class="panel panel-primary">
+			  <div class="panel-heading">
+				<h3 class="panel-title">First Meeting</h3>
+			  </div>
+			  <div class="panel-body">
+				Wednesday Feb 10, 2016 in Debart 214, 7pm - 8pm
+			  </div>
+			</div>
+			<div class="panel panel-primary">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Welcome!</h3>
+			  </div>
+			  <div class="panel-body">
+				You've made it to our brand new site! Poke around, tell us what you think.
+			  </div>
+			</div>
+		</div>
+		
+	</div>
+=======
+>>>>>>> master
 {% endblock %}
