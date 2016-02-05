@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Announcements</h1>
-    <p class="important">
-      TODO: everything
-    </p>
+    <div class="container">
+    <div class="row">
+        <h1>Announcements</h1>
+            {% if user.is_authenticated %}
+            <p class="important">
+            Please
+            <a href="https://docs.google.com/a/nd.edu/forms/d/1at43MVIuC2zo28sVanY4LSTsno_pGu9EbhkPeDSlnx4/viewform?usp=send_form">Vote</a>
+             for a topic for the first meeting!
+            </p>
+            {% else %}
+            <p class="important">
+            Plese sign up to vote for a topic for the first meeting.
+            </p>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
