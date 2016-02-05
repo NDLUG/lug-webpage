@@ -35,7 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'announcements',
-   # 'polls',
+    'voting',
+    'secretballot',
+    'django_extensions',
+    'likes',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -47,13 +50,15 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'secretballot.middleware.SecretBallotIpMiddleware',
+    'likes.middleware.SecretBallotUserIpUseragentMiddleware',
 ]
 
 ROOT_URLCONF = 'ndlug.urls'
 
 TEMPLATES = [
     {
-        'BACKEND':'django.template.backends.django.DjangoTemplates',
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -62,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -86,16 +92,16 @@ DATABASES['default'] = dj_database_url.config(default=db_url)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',  # noqa
     },
 ]
 
