@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,30 +84,30 @@ WSGI_APPLICATION = 'ndlug.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 try:
-    db_url = os.environ['DATABASE_URL']
+        db_url = os.environ['DATABASE_URL']
 except KeyError:
-    db_url = "postgres://postgres:test@localhost:5432/ndlug"
+        db_url = "postgres://postgres:test@localhost:5432/ndlug"
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(default=db_url)
+        DATABASES = {}
+        DATABASES['default'] = dj_database_url.config(default=db_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+            {
+                        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+                            },
+                {
+                            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+                                },
+                    {
+                                'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+                                    },
+                        {
+                                    'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+                                        },
+                        ]
 
 
 # Internationalization
@@ -130,8 +131,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+            os.path.join(BASE_DIR, 'static'),
+            )
 
 # Whitenoise is cool.
 # Simplified static file serving.
