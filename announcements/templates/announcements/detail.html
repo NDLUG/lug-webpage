@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% load announcements_tags %}
+
+<h3>Announcements</h3>
+
+{% announcements as announcements_list %}
+
+{% if announcements_list %}
+    <div class="announcements">
+        {% for announcement in announcements_list %}
+            <div class="announcement">
+            <strong>{{ announcement.title }}</strong><br />
+            {{ announcement.content }}
+            {% if announcement.dismiss_url %}
+                <a href="{{ announcement.dismiss_url }}" class="ajax" data-clear-closest=".announcement">Clear</a>
+            {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% endblock %}
