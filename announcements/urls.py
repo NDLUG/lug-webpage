@@ -1,10 +1,11 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls import patterns, url
 
 from announcements.views import detail, dismiss
 from announcements.views import CreateAnnouncementView, UpdateAnnouncementView
 from announcements.views import DeleteAnnouncementView, AnnouncementListView
 
-urlpatterns = patterns("",
+urlpatterns = patterns(
+    "",
     url(r"^$", AnnouncementListView.as_view(), name="announcements_list"),
     url(r"^announcement/create/$", CreateAnnouncementView.as_view(), name="announcements_create"),
     url(r"^announcement/(?P<pk>\d+)/$", detail, name="announcements_detail"),
