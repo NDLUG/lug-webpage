@@ -24,7 +24,7 @@
         <span class="icon-bar"></span>
       </button>
 		<a class="navbar-brand" href="/">
-        <img alt="ND LUG" style="top:-5px" src="static/tux-nd.png">
+        <img alt="ND LUG" style="top:-5px" src="/static/tux-nd.png">
       </a> 
 
     </div>
@@ -65,10 +65,11 @@
                 {% endif %}
 			{% endfor %}
 		{% endif %}
+      <div class="container">
       {% block content %}{% endblock %}
+      </div>
       <br>
       <h2></h2>
-      <div id="content">{% block morecontent %}{% endblock %}</div>
     <footer class="footer">
         <div class="container text-center">
         &copy; Built with <a href="https://www.python.org/">Python</a>, <a href="https://www.djangoproject.com/">Django</a>, and <a href="http://getbootstrap.com/">Bootstrap</a>.

@@ -34,9 +34,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'announcements',
+    'ann',
     'registration',
-    # 'polls',
+    'announcements',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -70,6 +70,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ndlug.wsgi.application'
 
+MIGRATION_MODULES = {
+    'announcements': 'announcements.django_migrations'
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
