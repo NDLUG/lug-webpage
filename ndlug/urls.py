@@ -25,6 +25,7 @@ class MyRegistrationView(RegistrationView):
         return '/'
 
 urlpatterns = [
+    url(r"^announcements/", include("announcements.urls")),
     url(r'^$', include('ann.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/register/$',  # needed to overwrite normal redirect
