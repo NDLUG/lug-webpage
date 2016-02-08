@@ -16,13 +16,22 @@ else:
     else:
         username_search = "user__username"
 
+
 class AnnouncementAdmin(admin.ModelAdmin):
     list_display = ("title", "creator", "creation_date", "members_only")
     list_filter = ("members_only",)
-    fieldsets = [
-        (None, {
+    fieldsets = [(
+        None,
+        {
             "fields": [
-                "title", "content", "site_wide", "members_only", "publish_start", "publish_end", "dismissal_type"],
+                "title",
+                "content",
+                "site_wide",
+                "members_only",
+                "publish_start",
+                "publish_end",
+                "dismissal_type",
+            ],
         }),
     ]
 
@@ -31,6 +40,7 @@ class AnnouncementAdmin(admin.ModelAdmin):
             # When creating a new announcement, set the creator field.
             obj.creator = request.user
         obj.save()
+
 
 class DismissalAdmin(admin.ModelAdmin):
     list_display = ("user", "announcement", "dismissed_at")
