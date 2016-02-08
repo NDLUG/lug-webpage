@@ -19,9 +19,6 @@
                 <div class="panel-body">
             	    {{ announcement.content }}
                 
-                    {% if announcement.dismiss_url %}
-                        <a href="{{ announcement.dismiss_url }}" class="ajax" data-clear-closest=".announcement"> Clear</a>
-                    {% endif %}
                 </div>
             </div>
         {% endfor %}
