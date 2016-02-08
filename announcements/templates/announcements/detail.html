@@ -12,15 +12,21 @@
 {% if announcements_list %}
     <div class="announcements">
         {% for announcement in announcements_list %}
+        		<div class="panel panel-primary">
             <div class="announcement">
-            <strong>{{ announcement.title }}</strong><br />
-            {{ announcement.content }}
+            <div class="panel-heading">
+            <h3 class="panel-title">{{ announcement.title }}</h3><br />
+            <div class="panel-body">
+            	{{ announcement.content }}
+            </div>
             {% if announcement.dismiss_url %}
-                <a href="{{ announcement.dismiss_url }}" class="ajax" data-clear-closest=".announcement">Clear</a>
+                <a href="{{ announcement.dismiss_url }}" class="ajax" data-clear-closest=".announcement"> Clear</a>
             {% endif %}
+            </div>
             </div>
         {% endfor %}
     </div>
 {% endif %}
 
 {% endblock %}
+
