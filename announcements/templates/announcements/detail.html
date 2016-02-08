@@ -14,11 +14,12 @@
         {% for announcement in announcements_list %}
         	<div class="panel panel-primary">
                 <div class="announcement">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{ announcement.title }}</h3></div>
-                <div class="panel-body">
-            	    {{ announcement.content | safe }}
-                </div>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ announcement.title }}</h3>
+                    </div>
+                    <div class="panel-body">
+            	        {{ announcement.content | safe }}
+                    </div>
                 </div>
             </div>
         {% endfor %}
