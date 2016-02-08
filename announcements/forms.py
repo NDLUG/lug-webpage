@@ -4,7 +4,7 @@ from announcements.models import Announcement
 
 
 class AnnouncementForm(forms.ModelForm):
-    
+
     class Meta:
         model = Announcement
         fields = [
@@ -16,4 +16,3 @@ class AnnouncementForm(forms.ModelForm):
             "publish_start",
             "publish_end"
         ]
-

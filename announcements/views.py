@@ -31,7 +31,11 @@ def dismiss(request, pk):
         status = 200
     else:
         status = 409
-    return HttpResponse(json.dumps({}), status=status, mimetype="application/json")
+    return HttpResponse(
+        json.dumps({}),
+        status=status,
+        mimetype="application/json",
+    )
 
 
 def detail(request, pk):
@@ -42,7 +46,7 @@ def detail(request, pk):
 
 
 class ProtectedView(View):
-    
+
     @method_decorator(permission_required("announcements.can_manage"))
     def dispatch(self, *args, **kwargs):
         return super(ProtectedView, self).dispatch(*args, **kwargs)
@@ -51,7 +55,7 @@ class ProtectedView(View):
 class CreateAnnouncementView(ProtectedView, CreateView):
     model = Announcement
     form_class = AnnouncementForm
-    
+
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.creator = self.request.user
@@ -62,7 +66,7 @@ class CreateAnnouncementView(ProtectedView, CreateView):
             request=self.request
         )
         return super(CreateAnnouncementView, self).form_valid(form)
-    
+
     def get_success_url(self):
         return reverse("announcements_list")
 
@@ -70,7 +74,7 @@ class CreateAnnouncementView(ProtectedView, CreateView):
 class UpdateAnnouncementView(ProtectedView, UpdateView):
     model = Announcement
     form_class = AnnouncementForm
-    
+
     def form_valid(self, form):
         response = super(UpdateAnnouncementView, self).form_valid(form)
         signals.announcement_updated.send(
@@ -79,14 +83,14 @@ class UpdateAnnouncementView(ProtectedView, UpdateView):
             request=self.request
         )
         return response
-    
+
     def get_success_url(self):
         return reverse("announcements_list")
 
 
 class DeleteAnnouncementView(ProtectedView, DeleteView):
     model = Announcement
-    
+
     def form_valid(self, form):
         response = super(DeleteAnnouncementView, self).form_valid(form)
         signals.announcement_deleted.send(
@@ -95,7 +99,7 @@ class DeleteAnnouncementView(ProtectedView, DeleteView):
             request=self.request
         )
         return response
-    
+
     def get_success_url(self):
         return reverse("announcements_list")
 
