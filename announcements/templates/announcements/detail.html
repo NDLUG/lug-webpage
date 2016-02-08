@@ -13,15 +13,11 @@
     <div class="announcements">
         {% for announcement in announcements_list %}
         	<div class="panel panel-primary">
-                <div class="announcement">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">{{ announcement.title }}</h3></div>
-                    <div class="panel-body">
-            	        {{ announcement.content | safe }}
-                    </div>
-                    {% if announcement.dismiss_url %}
-                       <a href="{{ announcement.dismiss_url }}" class="ajax" data-clear-closest=".announcement"> Clear</a>
-                    {% endif %}
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ announcement.title }}</h3>
+                </div>
+                <div class="panel-body">
+            	    {{ announcement.content | safe }}
                 </div>
             </div>
         {% endfor %}
