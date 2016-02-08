@@ -17,7 +17,7 @@
             <div class="panel-heading">
             <h3 class="panel-title">{{ announcement.title }}</h3><br />
             <div class="panel-body">
-            	{{ announcement.content }}
+            	{{ announcement.content | safe }}
             </div>
             {% if announcement.dismiss_url %}
                 <a href="{{ announcement.dismiss_url }}" class="ajax" data-clear-closest=".announcement"> Clear</a>
