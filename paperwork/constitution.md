@@ -1,0 +1,2 @@
+#ND-LUG Constitution
+========
