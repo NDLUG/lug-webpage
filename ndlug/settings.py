@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'ann',
     'registration',
     'announcements',
+    'django_nose',
+    'core',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -140,3 +142,6 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/accounts/login/'
+
+# set test runner as django-nose
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
