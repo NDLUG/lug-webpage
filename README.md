@@ -1,5 +1,5 @@
-ND LUG Webpage <3
-=================
+ND LUG Webpage 
+==============
 
 Webpage for Notre Dame's LUG club.
 
