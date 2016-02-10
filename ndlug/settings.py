@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'registration',
     'announcements',
     'django_nose',
+    'core',
 ]
 
 MIDDLEWARE_CLASSES = [
