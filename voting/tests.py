@@ -39,6 +39,22 @@ class VotingClientTestCase(TestCase):
                 ),
             )
 
+    def test_can_vote_via_request(self):
+        c = self.client
+        vt = VotingTopic()
+        vt.save()
+        r = c.get(
+            '/voting/vote/voting.VotingTopic/' + str(vt.id) + '/1/',
+            {
+                'content_type': 'VotingTopic',
+                'object_id': vt.id,
+                'vote': 1,
+            }
+        )
+        self.assertEqual(r.status_code, 200)
+        vt = VotingTopic.objects.get(pk=vt.pk)
+        self.assertEqual(vt.vote_total, 1)
+
 
 class VotingUnitTestCase(TestCase):
     def test_can_vote_on_vote_topic_model(self):
