@@ -1,5 +1,6 @@
+from random import random
+
 from django.test import TestCase
-from django.contrib.auth.models import User
 
 from voting.models import VotingTopic
 
@@ -16,6 +17,27 @@ class VotingClientTestCase(TestCase):
         vt.save()
         r = c.get('/voting/')
         self.assertContains(r, vt.title)
+
+    def test_vote_topics_appear_with_number_of_votes(self):
+        c = self.client
+        topics = [VotingTopic(title='Topic ' + str(i)) for i in xrange(0, 5)]
+        # Add votes
+        for i, t in enumerate(topics):
+            t.save()
+            for j in xrange(0, i):
+                t.add_vote(random(), 1)
+
+        # Get votes
+        topics = [VotingTopic.objects.get(pk=t.pk) for t in topics]
+        r = c.get('/voting/')
+        for t in topics:
+            self.assertContains(
+                r,
+                "{title}: {v_count}".format(
+                    title=t.title,
+                    v_count=t.vote_total,
+                ),
+            )
 
 
 class VotingUnitTestCase(TestCase):

@@ -4,7 +4,7 @@
 <h1>Voting topics</h1>
 <ul>
 {% for topic in topics %}
-    <li>{{ topic.title }}</li>
+    <li>{{ topic.title }}: {{ topic.vote_total }}</li>
 {% endfor %}
 </ul>
 
