@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.contrib.auth.models import User
 
 from voting.models import VotingTopic
 
@@ -15,3 +16,14 @@ class VotingClientTestCase(TestCase):
         vt.save()
         r = c.get('/voting/')
         self.assertContains(r, vt.title)
+
+
+class VotingUnitTestCase(TestCase):
+    def test_can_vote_on_vote_topic_model(self):
+        u = User(username='bob', password='dylan')
+        u.save()
+        vt = VotingTopic(title='My cool topic')
+        vt.save()
+        vt.add_vote('1.1.1.1', 1)
+        vt_with_votes = VotingTopic.objects.get(pk=vt.pk)
+        self.assertEqual(vt_with_votes.vote_total, 1)
