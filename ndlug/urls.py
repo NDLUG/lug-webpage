@@ -29,6 +29,7 @@ urlpatterns = [
     url(r"^announcements/", include("announcements.urls")),
     url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
+    url(r'^voting/', include("voting.urls")),
     url(r'^accounts/register/$',  # needed to overwrite normal redirect
         MyRegistrationView.as_view(),
         name='registration_register',
