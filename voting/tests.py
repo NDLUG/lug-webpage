@@ -20,8 +20,6 @@ class VotingClientTestCase(TestCase):
 
 class VotingUnitTestCase(TestCase):
     def test_can_vote_on_vote_topic_model(self):
-        u = User(username='bob', password='dylan')
-        u.save()
         vt = VotingTopic(title='My cool topic')
         vt.save()
         vt.add_vote('1.1.1.1', 1)
