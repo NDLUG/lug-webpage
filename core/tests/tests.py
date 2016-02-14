@@ -1,5 +1,19 @@
-from django.test import TestCase
 from django.contrib.auth.models import User
+from django.core import mail
+from django.test import TestCase
+
+
+class EmailTestCase(TestCase):
+    def test_send_email(self):
+        mail.send_mail(
+            'Subject',
+            'message',
+            'from@gmail.com',
+            ['test@gmail.com'],
+            fail_silently=False,
+        )
+
+        self.assertEqual(len(mail.outbox), 1)
 
 
 class RegistrationClientTestCase(TestCase):
