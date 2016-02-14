@@ -145,3 +145,10 @@ LOGIN_URL = '/accounts/login/'
 
 # set test runner as django-nose
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# Email
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', None)
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', None)
+EMAIL_USE_TLS = True
