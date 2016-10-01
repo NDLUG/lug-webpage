@@ -2,7 +2,13 @@
 
 {% block content %}
     <div class="jumbotron">
-        <h1 class="label label-pill label-success">Announcements</h1>
+        <h1 class="">
+            Notre Dame Linux Users Group
+            <a href="http://ndlug-slackin.herokuapp.com">
+                <img src="http://ndlug-slackin.herokuapp.com/badge.svg">
+            </a>
+        </h1>
+        <a href="{% url 'about' %}" class="btn btn-success">About</a>
     </div>
 
     <!-- Subsection 1, Info -->
@@ -12,6 +18,15 @@
 		</div>
 		<div class="col-md-6"><br>
 
+			<div class="panel panel-primary">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Welcome!</h3>
+			  </div>
+			  <div class="panel-body">
+                  Please read <a href="{% url 'about' %}">about</a> the club.
+                  Check out this page's source code <a href="https://github.com/bdevorem/lug-webpage">here</a>.
+			  </div>
+			</div>
 
 			<div class="panel panel-primary">
 			  <div class="panel-heading">
@@ -19,14 +34,6 @@
 			  </div>
 			  <div class="panel-body">
 				Thursdays. 6pm-7pm, 224 Debart
-			  </div>
-			</div>
-			<div class="panel panel-primary">
-			  <div class="panel-heading">
-				<h3 class="panel-title">Welcome!</h3>
-			  </div>
-			  <div class="panel-body">
-                  Check out this page's source code <a href="https://github.com/bdevorem/lug-webpage">here</a>.
 			  </div>
 			</div>
 		</div>
