@@ -4,6 +4,6 @@ from django.template import RequestContext
 
 def index(request):
     return render_to_response(
-        'announcements/index.html',
+        'startpage/index.html',
         context_instance=RequestContext(request),
     )

@@ -19,15 +19,13 @@ from django.conf.urls import include
 
 from registration.backends.simple.views import RegistrationView
 
-from ann import views
-
 class MyRegistrationView(RegistrationView):
     def get_success_url(self, request, user):
         return '/'
 
 urlpatterns = [
+    url(r'', include("startpage.urls")),
     url(r"^announcements/", include("announcements.urls")),
-    url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/register/$',  # needed to overwrite normal redirect
         MyRegistrationView.as_view(),
