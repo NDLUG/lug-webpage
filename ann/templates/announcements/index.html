@@ -11,42 +11,14 @@
 			<img class="img-responsive" src="/static/tux-nd-big.png">
 		</div>
 		<div class="col-md-6"><br>
-            <div class="panel panel-primary">
-			  <div class="panel-heading">
-				<h3 class="panel-title">Spam</h3>
-			  </div>
-			  <div class="panel-body">
-				Sorry everyone for all the spammy emails. Google can't decide if we are a spam account or
-                not, so there have been a bunch of emails! Please disregard, but read the rest of these
-                announcements.
-			  </div>
-			</div>
 
 
 			<div class="panel panel-primary">
 			  <div class="panel-heading">
-				<h3 class="panel-title">New! Poll</h3>
+				<h3 class="panel-title">Meeting Times</h3>
 			  </div>
 			  <div class="panel-body">
-				{% if user.is_authenticated %}
-            <p class="important">
-            Please
-            <a href="https://docs.google.com/forms/d/1l1w_B7iuC8C_9L2LcwOwldWetwivR3FkEv8yGFlhyUg/viewform">vote</a>
-             on a topic for the second meeting!
-            </p>
-            {% else %}
-            <p class="important">
-            Plese sign up to vote on a topic for our second meeting!
-            </p>
-            {% endif %}
-			  </div>
-			</div>
-			<div class="panel panel-primary">
-			  <div class="panel-heading">
-				<h3 class="panel-title">Second Meeting</h3>
-			  </div>
-			  <div class="panel-body">
-				Wednesday Feb 17, 2016. 7pm-8pm, 215 Debart
+				Thursdays. 6pm-7pm, 224 Debart
 			  </div>
 			</div>
 			<div class="panel panel-primary">
@@ -58,6 +30,6 @@
 			  </div>
 			</div>
 		</div>
-		
+
 	</div>
 {% endblock %}
